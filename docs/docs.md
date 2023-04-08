@@ -1,0 +1,5 @@
+- Dependencies:
+  - Framework = Next JS
+  - CSS = Tailwind
+  - CSS UI = Daisy UI
+  - Icon = Heroicon
