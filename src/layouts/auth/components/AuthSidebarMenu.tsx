@@ -92,7 +92,7 @@ const AuthSidebarMenu: FC<{
         )}
       </Link>
       {(!isEmpty(menu.children)) && (
-        <ul id={`menu-children-${menu.id}`} className="fixed pl-0 z-50 bg-base-100 border border-base-300 border-solid">
+        <ul id={`menu-children-${menu.id}`} className="hidden fixed pl-0 z-50 bg-base-100 border border-base-300 border-solid">
           {menu.children?.map((item, itemIndex) => (
             <AuthSidebarMenu key={itemIndex} isFirst={false} isToggle={isToggle} menu={item} index={itemIndex} />
           ))}

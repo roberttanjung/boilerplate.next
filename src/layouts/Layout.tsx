@@ -1,4 +1,5 @@
 import type { FC, ReactNode } from 'react'
+
 import useTheme from './hooks/useTheme'
 
 const Layout: FC<{ children: ReactNode }> = ({ children }) => {

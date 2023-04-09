@@ -1,7 +1,9 @@
 import type { FC } from 'react'
+import type { RootState } from '@/stores'
 
 import { useRouter } from 'next/router'
 import i18n from '@/i18n'
+import { useAppSelector } from '@/hooks/useStore'
 import useTheme from '@/layouts/hooks/useTheme'
 import {
   BellIcon,
@@ -14,11 +16,14 @@ import {
 const AuthHeader: FC<{ onSidebar: any }> = ({ onSidebar }) => {
   const { locale } = useRouter()
 
+  // group: selector
+  const { userName } = useAppSelector((state: RootState) => state.layout)
+
   // group: hook
   const { stateTheme, onChangeTheme } = useTheme()
 
   return (
-    <header className="flex justify-between items-center py-3 px-5 border-b border-base-300 border-solid">
+    <header id="section:header" className="flex justify-between items-center py-3 px-5 border-b border-base-300 border-solid">
       <div id="box:icon-toggle">
         <a
           title={i18n('menu.toggle', locale)}
@@ -51,7 +56,7 @@ const AuthHeader: FC<{ onSidebar: any }> = ({ onSidebar }) => {
         </div>
         <div id="box:user" className="dropdown dropdown-end">
           <a className="flex justify-center items-center" tabIndex={0}>
-            <div id="user:name" className="pr-3 font-semibold">Robert Tanjung</div>
+            <div id="user:name" className="pr-3 font-semibold md:hidden">{userName}</div>
             <div id="user:avatar" className="avatar">
               <div className="w-10 rounded" title={i18n('avatar', locale)}>
                 <img src="https://img.koreatimes.co.kr/upload/newsV2/images/202112/658d86a0dd5c40228d9ad671cee649a3.jpg/dims/resize/740/optimize" />

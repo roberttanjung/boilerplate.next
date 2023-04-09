@@ -4,6 +4,8 @@ import type { ReactElement, ReactNode } from 'react'
 import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 
+import { Provider } from 'react-redux'
+import store from '@/stores'
 import { Oswald } from 'next/font/google'
 
 const oswald = Oswald({
@@ -25,8 +27,10 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page)
 
   return (
-    <div className={`${oswald.variable} font-sans`}>
-      {getLayout(<Component {...pageProps} />)}
-    </div>
+    <Provider store={store}>
+      <div className={`${oswald.variable} font-sans`}>
+        {getLayout(<Component {...pageProps} />)}
+      </div>
+    </Provider>
   )
 }
