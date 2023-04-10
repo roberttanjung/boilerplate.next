@@ -1,4 +1,4 @@
-import type ListMenuType from '@/types/mocks/list-menu.type'
+import type ListMenuType from '@/types/mocks/list-menu.type';
 
 const listMenus: ListMenuType[] = [
   {
@@ -6,16 +6,16 @@ const listMenus: ListMenuType[] = [
     path: '/',
     label: {
       'en-US': 'Dashboard',
-      'id-ID': 'Beranda'
+      'id-ID': 'Beranda',
     },
-    icon: 'HomeIcon'
+    icon: 'HomeIcon',
   },
   {
     id: 'form',
     path: '/form',
     label: {
       'en-US': 'Form',
-      'id-ID': 'Form'
+      'id-ID': 'Form',
     },
     icon: 'DocumentTextIcon',
     highlights: ['/form/basic', '/form/basic-2', '/form/advance'],
@@ -25,7 +25,7 @@ const listMenus: ListMenuType[] = [
         path: '/form/basic',
         label: {
           'en-US': 'Basic Input',
-          'id-ID': 'Input Dasar'
+          'id-ID': 'Input Dasar',
         },
         highlights: ['/form/basic-2'],
         children: [
@@ -34,21 +34,21 @@ const listMenus: ListMenuType[] = [
             path: '/form/basic-2',
             label: {
               'en-US': 'Basic Input',
-              'id-ID': 'Input Dasar'
-            }
-          }
-        ]
+              'id-ID': 'Input Dasar',
+            },
+          },
+        ],
       },
       {
         id: 'form-advance',
         path: '/form/advance',
         label: {
           'en-US': 'Advance Input',
-          'id-ID': 'Input Lanjutan'
-        }
-      }
-    ]
-  }
-]
+          'id-ID': 'Input Lanjutan',
+        },
+      },
+    ],
+  },
+];
 
-export default listMenus
+export default listMenus;

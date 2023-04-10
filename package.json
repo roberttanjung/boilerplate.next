@@ -6,9 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:airbnb": "eslint \"./src/**/*.+(ts|tsx)\"",
+    "lint:airbnb-fix": "eslint --fix \"./src/**/*.+(ts|tsx)\"",
+    "format": "prettier --write \"./src/**/*.+(ts|tsx)\""
   },
   "dependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/eslint-parser": "^7.21.3",
     "@heroicons/react": "^2.0.17",
     "@reduxjs/toolkit": "^1.9.3",
     "@types/is-empty": "^1.2.1",
@@ -16,8 +21,13 @@
     "@types/react": "18.0.33",
     "@types/react-dom": "18.0.11",
     "daisyui": "^2.51.5",
-    "eslint": "8.37.0",
-    "eslint-config-next": "13.2.4",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-next": "^13.2.4",
+    "eslint-config-react-important-stuff": "^3.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
     "is-empty": "^1.2.0",
     "next": "13.2.4",
     "react": "18.2.0",
@@ -27,7 +37,9 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
+    "eslint": "^8.38.0",
     "postcss": "^8.4.21",
+    "prettier": "^2.8.7",
     "tailwindcss": "^3.3.1"
   }
 }

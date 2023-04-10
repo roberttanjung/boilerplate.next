@@ -1,14 +1,14 @@
 interface KeyType {
-  [key: string]: string
+  [key: string]: string;
 }
 
 interface ListMenuType {
-  id: string,
-  path: string,
-  label: KeyType,
-  icon?: string,
-  highlights?: string[],
-  children?: ListMenuType[]
+  id: string;
+  path: string;
+  label: KeyType;
+  icon?: string;
+  highlights?: string[];
+  children?: ListMenuType[];
 }
 
-export default ListMenuType
+export default ListMenuType;

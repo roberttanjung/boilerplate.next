@@ -1,18 +1,18 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
 const useSidebarToggle = () => {
   // group: state
-  const [stateIsToggle, setStateIsToggle] = useState<boolean>(false)
+  const [stateIsToggle, setStateIsToggle] = useState<boolean>(false);
 
   // group: action
   const onSidebarToggle = (): void => {
-    setStateIsToggle(!stateIsToggle)
-  }
+    setStateIsToggle(!stateIsToggle);
+  };
 
   return {
     stateIsToggle,
-    onSidebarToggle
-  }
-}
+    onSidebarToggle,
+  };
+};
 
-export default useSidebarToggle
+export default useSidebarToggle;

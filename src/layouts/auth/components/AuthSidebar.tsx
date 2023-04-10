@@ -1,39 +1,41 @@
-import type { FC } from 'react'
+import type { FC } from 'react';
 
-import AuthSidebarMenu from './AuthSidebarMenu'
+import AuthSidebarMenu from './AuthSidebarMenu';
 
 // mocks
-import listMenus from '@/mocks/list-menu'
+import listMenus from '@/mocks/list-menu';
 
 const AuthSidebar: FC<{ isToggle: boolean }> = ({ isToggle }) => {
   // group: set
   const setToggle = (): string => {
-    let set = 'basis-[250px]'
+    let set = 'basis-[250px]';
 
-    if (isToggle) set = 'basis-[56px]'
+    if (isToggle) set = 'basis-[56px]';
 
-    return set
-  }
+    return set;
+  };
 
   const setLogoClass = (): string => {
-    let set = 'py-2 px-4'
+    let set = 'py-2 px-4';
 
-    if (isToggle) set = 'justify-center p-0'
+    if (isToggle) set = 'justify-center p-0';
 
-    return set
-  }
+    return set;
+  };
 
   return (
     <aside id="layout:sidebar" className={`${setToggle()} overflow-hidden border-r border-base-300 border-solid`}>
       <div id="box:logo" className={`flex items-center h-16 ${setLogoClass()}`}>
         <a className="text-2xl font-bold">
-          {(!isToggle) ? (
+          {!isToggle ? (
             <span>
-              <span className="text-primary">ROBERT</span><span className="text-info">PLATE</span>
+              <span className="text-primary">ROBERT</span>
+              <span className="text-info">PLATE</span>
             </span>
           ) : (
             <span>
-              <span className="text-primary">R</span><span className="text-info">P</span>
+              <span className="text-primary">R</span>
+              <span className="text-info">P</span>
             </span>
           )}
         </a>
@@ -44,7 +46,7 @@ const AuthSidebar: FC<{ isToggle: boolean }> = ({ isToggle }) => {
         ))}
       </ul>
     </aside>
-  )
-}
+  );
+};
 
-export default AuthSidebar
+export default AuthSidebar;

@@ -1,21 +1,21 @@
 // group: lang
-import en from './langs/en'
-import id from './langs/id'
+import en from './langs/en';
+import id from './langs/id';
 
 interface KeyType {
-  [key: string]: string
+  [key: string]: string;
 }
 
 const i18n = (text: string, locale?: string) => {
-  let langs: KeyType = {}
-  let lang: string = ''
+  let langs: KeyType = {};
+  let lang: string = '';
 
-  if (locale === 'en-US') langs = en
-  else if (locale === 'id-ID') langs = id
+  if (locale === 'en-US') langs = en;
+  else if (locale === 'id-ID') langs = id;
 
-  lang = langs[text!]
+  lang = langs[text!];
 
-  return lang
-}
+  return lang;
+};
 
-export default i18n
+export default i18n;

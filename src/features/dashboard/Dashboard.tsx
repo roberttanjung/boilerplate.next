@@ -1,31 +1,25 @@
-import { useEffect } from 'react'
-import { useAppDispatch } from '@/hooks/useStore'
-import { onChangeApp } from '@/stores/reducers/app'
+import { useEffect, useCallback } from 'react';
+import { useAppDispatch } from '@/hooks/useStore';
+import { onChangeApp } from '@/stores/reducers/app';
 
 const Dashboard = () => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
   // group: setup
-  const setupBreadcrumbs = () => {
-    dispatch(onChangeApp({ pageBreadcrumbs: [
-      { href: '#', label: 'Dashboard', icon: 'HomeIcon' }
-    ] }))
-  }
+  const setupBreadcrumbs = useCallback((): void => {
+    dispatch(onChangeApp({ pageBreadcrumbs: [{ href: '#', label: 'Dashboard', icon: 'HomeIcon' }] }));
+  }, [dispatch]);
 
-  const setup = () => {
-    setupBreadcrumbs()
-  }
+  const setup = useCallback((): void => {
+    setupBreadcrumbs();
+  }, [setupBreadcrumbs]);
 
   // group: mount
   useEffect(() => {
-    setup()
-  }, [])
+    setup();
+  }, [setup]);
 
-  return (
-    <section>
-      HALO DASHBOARD
-    </section>
-  )
-}
+  return <section>HALO DASHBOARD</section>;
+};
 
-export default Dashboard
+export default Dashboard;
