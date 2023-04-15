@@ -3,3 +3,4 @@
   - CSS = Tailwind
   - CSS UI = Daisy UI
   - Icon = Heroicon
+  - Form = react-hook-form
