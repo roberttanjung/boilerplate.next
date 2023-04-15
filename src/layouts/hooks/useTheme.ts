@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
+import { onSetCookie, onGetCookie } from '@/utils/cookies';
 
 const useTheme = () => {
   const { reload } = useRouter();
@@ -9,16 +10,14 @@ const useTheme = () => {
 
   // group: action
   const onChangeTheme = (theme: string): void => {
-    localStorage.setItem('theme', theme);
+    onSetCookie('theme', theme);
     setStateTheme(theme);
     reload();
   };
 
   // group: setup
   const setup = (): void => {
-    const getLocalStorage: string = localStorage.getItem('theme') || 'bumblebee';
-
-    if (getLocalStorage) setStateTheme(getLocalStorage);
+    if (onGetCookie('theme')) setStateTheme(onGetCookie('theme'));
   };
 
   // group: mounted

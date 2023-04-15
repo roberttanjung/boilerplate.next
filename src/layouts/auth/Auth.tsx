@@ -1,5 +1,6 @@
 import type { FC, ReactNode } from 'react';
 
+import useAuth from './hooks/useAuth';
 import { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import useSidebarToggle from './hooks/useSidebarToggle';
@@ -10,10 +11,10 @@ const DynamicSidebar = dynamic(() => import('./components/AuthSidebar'));
 const DynamicBreadcrumbs = dynamic(() => import('./components/AuthBreadcrumbs'));
 
 const AuthLayout: FC<{ children: ReactNode }> = ({ children }) => {
-  // group: hook
+  useAuth();
+
   const { stateIsToggle, onSidebarToggle } = useSidebarToggle();
 
-  // group: setup
   const setupMain = () => {
     const getElHeader = document.getElementById('section:header');
     const getElMain = document.getElementById('section:main');
@@ -23,7 +24,6 @@ const AuthLayout: FC<{ children: ReactNode }> = ({ children }) => {
     }
   };
 
-  // group: mount
   useEffect(() => {
     setupMain();
   }, []);
