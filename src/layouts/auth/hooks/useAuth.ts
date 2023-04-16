@@ -7,7 +7,7 @@ const useAuth = () => {
   const token = getCookie(process.env.TOKEN_NAME!);
 
   const onCheck = useCallback(() => {
-    if (!token) redirectTo('/login');
+    if (!token) redirectTo('/auth/signin');
   }, [redirectTo, token]);
 
   useLayoutEffect(() => {

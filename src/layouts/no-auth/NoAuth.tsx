@@ -10,8 +10,8 @@ const AuthNoLayout: FC<{ children: ReactNode }> = ({ children }) => {
 
   return (
     <DynamicLayout>
-      <main id="section:main" className="py-2 px-10 overflow-y-auto">
-        <section className="pt-2">{children}</section>
+      <main id="section:main">
+        <section>{children}</section>
       </main>
     </DynamicLayout>
   );

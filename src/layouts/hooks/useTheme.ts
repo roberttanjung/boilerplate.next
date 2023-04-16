@@ -10,7 +10,7 @@ const useTheme = () => {
 
   // group: action
   const onChangeTheme = (theme: string): void => {
-    onSetCookie('theme', theme);
+    onSetCookie({ key: 'theme', value: theme });
     setStateTheme(theme);
     reload();
   };

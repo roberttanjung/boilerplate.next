@@ -7,7 +7,7 @@ const Layout: FC<{ children: ReactNode }> = ({ children }) => {
   const { stateTheme } = useTheme();
 
   return (
-    <div data-theme={stateTheme} className="flex flex-nowrap h-screen w-screen bg-base-100 font-oswald text-base-content">
+    <div data-theme={stateTheme} className="bg-base-100 font-oswald text-base-content">
       {children}
     </div>
   );

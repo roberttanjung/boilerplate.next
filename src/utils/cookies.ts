@@ -1,6 +1,6 @@
 import { setCookie, getCookie } from 'react-use-cookie';
 
-const onSetCookie = (key: string, value: string) => {
+const onSetCookie = ({ key, value }: { key: string; value: string }) => {
   setCookie(key, value);
 };
 
