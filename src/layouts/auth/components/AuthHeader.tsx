@@ -25,7 +25,7 @@ const AuthHeader: FC<{ onSidebar: any }> = ({ onSidebar }) => {
         </a>
       </div>
       <div id="box:notif--theme--user" className="flex justify-between items-center">
-        <div id="box:notif" className="mr-6">
+        <div id="box:notif" className="md:mr-6">
           <div className="indicator">
             <span className="indicator-item badge badge-secondary badge-xs" />
             <a className="inline-block" title={i18n('notifications', locale)}>
@@ -33,7 +33,7 @@ const AuthHeader: FC<{ onSidebar: any }> = ({ onSidebar }) => {
             </a>
           </div>
         </div>
-        <div id="box:theme" className="mr-6">
+        <div id="box:theme" className="md:mr-6">
           {stateTheme === 'bumblebee' && (
             <a className="inline-block" title={i18n('theme', locale)} onClick={() => onChangeTheme('dark')}>
               <SunIcon className="h-6 w-6" />
@@ -47,15 +47,15 @@ const AuthHeader: FC<{ onSidebar: any }> = ({ onSidebar }) => {
         </div>
         <div id="box:user" className="dropdown dropdown-end">
           <a className="flex justify-center items-center" tabIndex={0}>
-            <div id="user:name" className="pr-3 font-semibold md:hidden">
+            <div id="user:name" className="pr-3 font-semibold hidden md:block">
               {userName}
             </div>
             <div id="user:avatar" className="avatar">
-              <div className="w-10 rounded" title={i18n('avatar', locale)}>
+              <div className="w-10 rounded-full md:rounded" title={i18n('avatar', locale)}>
                 <Image alt={userName || 'RobertPlate'} src="/images/jae-kyung.jpg" height={40} width={40} />
               </div>
             </div>
-            <div id="user:chevron" className="pl-3">
+            <div id="user:chevron" className="pl-3 hidden md:block">
               <ChevronDownIcon className="h-4 w-4" />
             </div>
           </a>
