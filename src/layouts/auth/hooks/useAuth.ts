@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useLayoutEffect, useCallback } from 'react';
+import { useEffect, useCallback } from 'react';
 import { getCookie } from 'react-use-cookie';
 
 const useAuth = () => {
@@ -13,7 +13,7 @@ const useAuth = () => {
     return;
   }, [token]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     onCheck();
   }, [onCheck]);
 };

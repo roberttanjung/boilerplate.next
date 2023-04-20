@@ -6,9 +6,9 @@ import dynamic from 'next/dynamic';
 import useSidebarToggle from './hooks/useSidebarToggle';
 
 const DynamicLayout = dynamic(() => import('../Layout'));
-const DynamicHeader = dynamic(() => import('./components/AuthHeader'));
-const DynamicSidebar = dynamic(() => import('./components/AuthSidebar'));
-const DynamicBreadcrumbs = dynamic(() => import('./components/AuthBreadcrumbs'));
+const DynamicHeader = dynamic(() => import('./components/Header'));
+const DynamicSidebar = dynamic(() => import('./components/Sidebar'));
+const DynamicBreadcrumbs = dynamic(() => import('./components/Breadcrumbs'));
 
 const AuthLayout: FC<{ children: ReactNode }> = ({ children }) => {
   useAuth();

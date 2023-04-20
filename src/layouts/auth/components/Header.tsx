@@ -25,7 +25,7 @@ const AuthHeader: FC<{ onSidebar: any }> = ({ onSidebar }) => {
         </a>
       </div>
       <div id="box:notif--theme--user" className="flex justify-between items-center">
-        <div id="box:notif" className="md:mr-6">
+        <div id="box:notif" className="mr-3 md:mr-6">
           <div className="indicator">
             <span className="indicator-item badge badge-secondary badge-xs" />
             <a className="inline-block" title={i18n('notifications', locale)}>
@@ -33,7 +33,7 @@ const AuthHeader: FC<{ onSidebar: any }> = ({ onSidebar }) => {
             </a>
           </div>
         </div>
-        <div id="box:theme" className="md:mr-6">
+        <div id="box:theme" className="mr-3 md:mr-6">
           {stateTheme === 'bumblebee' && (
             <a className="inline-block" title={i18n('theme', locale)} onClick={() => onChangeTheme('dark')}>
               <SunIcon className="h-6 w-6" />

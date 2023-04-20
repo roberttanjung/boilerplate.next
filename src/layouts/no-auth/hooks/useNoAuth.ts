@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useLayoutEffect, useCallback } from 'react';
+import { useEffect, useCallback } from 'react';
 import { getCookie } from 'react-use-cookie';
 
 const useNoAuth = () => {
@@ -10,7 +10,7 @@ const useNoAuth = () => {
     if (token) redirectTo('/dashboard');
   }, [redirectTo, token]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     onCheck();
   }, [onCheck]);
 };
