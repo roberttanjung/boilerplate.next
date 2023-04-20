@@ -33,8 +33,8 @@ const AuthLayout: FC<{ children: ReactNode }> = ({ children }) => {
       <section className="flex flex-nowrap h-screen w-screen">
         <DynamicSidebar isToggle={stateIsToggle} />
         <section className="basis-full">
-          <DynamicHeader onSidebar={onSidebarToggle} />
-          <main id="section:main" className="py-2 px-10 overflow-y-auto">
+          <DynamicHeader isToggle={stateIsToggle} onSidebar={onSidebarToggle} />
+          <main id="section:main" className="py-2 px-5 overflow-y-auto md:px-10">
             <DynamicBreadcrumbs />
             <section className="pt-2">{children}</section>
           </main>

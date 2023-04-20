@@ -1,9 +1,10 @@
 import type { FC } from 'react';
+import type { RootState } from '@/stores';
 import type ListMenuType from '@/types/mocks/list-menu.type';
 
 import { useRouter } from 'next/router';
 import isEmpty from 'is-empty';
-import Link from 'next/link';
+import { useAppSelector } from '@/hooks/useStore';
 import IconSolid from '@/icons/IconSolid';
 import { ChevronRightIcon } from '@heroicons/react/24/solid';
 
@@ -13,7 +14,11 @@ const AuthSidebarMenu: FC<{
   menu: ListMenuType;
   index?: number;
 }> = ({ isFirst, isToggle, menu, index }) => {
-  const { pathname, locale } = useRouter();
+  const { pathname, locale, push: redirectTo } = useRouter();
+  const deviceMobile = ['xs', 'sm'];
+
+  // group: selector
+  const { pageResponsive } = useAppSelector((state: RootState) => state.app);
 
   // group: set
   const setHighlight = (): string => {
@@ -43,9 +48,11 @@ const AuthSidebarMenu: FC<{
       if (getElMenu && getElChildren) {
         const rectMenu = getElMenu.getBoundingClientRect();
 
-        getElChildren.style.top = `${rectMenu.top}px`;
-        getElChildren.style.left = `${getElMenu.offsetWidth + rectMenu.left - widthToggle}px`;
-        getElChildren.style.display = `block`;
+        if (!deviceMobile.includes(pageResponsive!)) {
+          getElChildren.style.top = `${rectMenu.top}px`;
+          getElChildren.style.left = `${getElMenu.offsetWidth + rectMenu.left - widthToggle}px`;
+          getElChildren.style.display = `block`;
+        }
       }
     }
   };
@@ -55,16 +62,22 @@ const AuthSidebarMenu: FC<{
       const getElChildren = document.getElementById(`menu-children-${menu.id}`);
 
       if (getElChildren) {
-        getElChildren.style.display = `none`;
+        if (!deviceMobile.includes(pageResponsive!)) {
+          getElChildren.style.display = `none`;
+        }
       }
     }
   };
 
+  const onRedirect = (): void | null => {
+    if (menu.children && !isEmpty(menu.children)) return;
+
+    redirectTo(menu.path, menu.path, { locale: locale });
+  };
+
   return (
     <li id={`menu-${menu.id}`} onMouseEnter={onHover} onMouseLeave={onBlur}>
-      <Link
-        href={menu.path}
-        locale={locale}
+      <a
         title={menu.label[locale!]}
         className={`
           flex
@@ -76,6 +89,8 @@ const AuthSidebarMenu: FC<{
           hover:bg-base-200
           hover:text-base-content
         `}
+        role="presentation"
+        onClick={onRedirect}
       >
         {menu.icon && (
           <span className="flex-none">
@@ -88,7 +103,7 @@ const AuthSidebarMenu: FC<{
             <ChevronRightIcon className="h-4 w-4" />
           </span>
         )}
-      </Link>
+      </a>
       {!isEmpty(menu.children) && (
         <ul id={`menu-children-${menu.id}`} className="hidden fixed pl-0 z-50 bg-base-100 border border-base-300 border-solid">
           {menu.children?.map((item, itemIndex) => (

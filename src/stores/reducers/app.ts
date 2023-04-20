@@ -8,10 +8,12 @@ interface AppState {
     label: string;
     icon?: string;
   }[];
+  pageResponsive?: string;
 }
 
 const initialState: AppState = {
   pageBreadcrumbs: [],
+  pageResponsive: 'md',
 };
 
 export const appSlice = createSlice({
@@ -22,6 +24,7 @@ export const appSlice = createSlice({
       const { payload } = action;
 
       if (payload.pageBreadcrumbs) state.pageBreadcrumbs = payload.pageBreadcrumbs;
+      if (payload.pageResponsive) state.pageResponsive = payload.pageResponsive;
     },
   },
 });

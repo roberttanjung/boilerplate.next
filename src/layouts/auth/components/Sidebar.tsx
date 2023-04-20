@@ -8,9 +8,9 @@ import listMenus from '@/mocks/list-menu';
 const AuthSidebar: FC<{ isToggle: boolean }> = ({ isToggle }) => {
   // group: set
   const setToggle = (): string => {
-    let set = 'basis-0 md:basis-[250px]';
+    let set = 'w-0 md:w-[250px]';
 
-    if (isToggle) set = 'basis-[300px] md:basis-[56px]';
+    if (isToggle) set = 'w-[215px] md:w-[56px]';
 
     return set;
   };
@@ -29,31 +29,43 @@ const AuthSidebar: FC<{ isToggle: boolean }> = ({ isToggle }) => {
       className={`
         fixed
         top-0
-        left-0
+        right-0
         h-screen
         overflow-hidden
         z-50
         bg-base-100
-        border-r
+        border-l
         border-base-300
         border-solid
         md:relative
+        md:right-auto
+        md:left-0
+        md:border-l-0
+        md:border-r
         ${setToggle()}
       `}
     >
       <div id="box:logo" className={`flex items-center h-16 justify-center md:justify-normal ${setLogoClass()}`}>
         <a className="text-2xl font-bold">
-          {!isToggle ? (
+          <div id="logo:md" className="hidden md:block">
+            {!isToggle ? (
+              <span>
+                <span className="text-primary">ROBERT</span>
+                <span className="text-info">PLATE</span>
+              </span>
+            ) : (
+              <span>
+                <span className="text-primary">R</span>
+                <span className="text-info">P</span>
+              </span>
+            )}
+          </div>
+          <div id="logo:sm" className="md:hidden">
             <span>
               <span className="text-primary">ROBERT</span>
               <span className="text-info">PLATE</span>
             </span>
-          ) : (
-            <span>
-              <span className="text-primary">R</span>
-              <span className="text-info">P</span>
-            </span>
-          )}
+          </div>
         </a>
       </div>
       <ul className="w-[215px] max-h-[calc(100vh-50px)] overflow-y-auto">

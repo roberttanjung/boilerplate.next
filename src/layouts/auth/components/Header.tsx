@@ -6,9 +6,9 @@ import i18n from '@/i18n';
 import { useAppSelector } from '@/hooks/useStore';
 import useTheme from '@/layouts/hooks/useTheme';
 import Image from 'next/image';
-import { BellIcon, SunIcon, MoonIcon, ChevronDownIcon, Bars3Icon } from '@heroicons/react/24/solid';
+import { BellIcon, SunIcon, MoonIcon, ChevronDownIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 
-const AuthHeader: FC<{ onSidebar: any }> = ({ onSidebar }) => {
+const AuthHeader: FC<{ isToggle?: boolean; onSidebar: any }> = ({ isToggle = false, onSidebar }) => {
   const { locale } = useRouter();
 
   // group: selector
@@ -21,7 +21,8 @@ const AuthHeader: FC<{ onSidebar: any }> = ({ onSidebar }) => {
     <header id="section:header" className="flex justify-between items-center py-3 px-5 border-b border-base-300 border-solid">
       <div id="box:icon-toggle">
         <a title={i18n('menu.toggle', locale)} className="inline-block p-[2px] rounded" onClick={onSidebar}>
-          <Bars3Icon className="h-6 w-6" />
+          <Bars3Icon className="hidden h-6 w-6 md:block" />
+          {!isToggle ? <Bars3Icon className="h-6 w-6 md:hidden" /> : <XMarkIcon className="h-6 w-6 md:hidden" />}
         </a>
       </div>
       <div id="box:notif--theme--user" className="flex justify-between items-center">
