@@ -49,10 +49,16 @@ const AuthSidebarMenu: FC<{
         const rectMenu = getElMenu.getBoundingClientRect();
 
         if (!deviceMobile.includes(pageResponsive!)) {
+          getElChildren.style.position = 'fixed';
           getElChildren.style.top = `${rectMenu.top}px`;
           getElChildren.style.left = `${getElMenu.offsetWidth + rectMenu.left - widthToggle}px`;
-          getElChildren.style.display = `block`;
+        } else {
+          getElChildren.style.position = 'relative';
+          getElChildren.style.top = `0px`;
+          getElChildren.style.left = `0px`;
         }
+
+        getElChildren.style.display = `block`;
       }
     }
   };

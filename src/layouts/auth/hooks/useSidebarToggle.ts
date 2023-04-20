@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
 const useSidebarToggle = () => {
   // group: state
@@ -9,9 +9,14 @@ const useSidebarToggle = () => {
     setStateIsToggle(!stateIsToggle);
   };
 
+  const onSidebarClose = useCallback((): void => {
+    setStateIsToggle(false);
+  }, [setStateIsToggle]);
+
   return {
     stateIsToggle,
     onSidebarToggle,
+    onSidebarClose,
   };
 };
 

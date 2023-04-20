@@ -14,10 +14,10 @@ const Layout: FC<{ children: ReactNode }> = ({ children }) => {
 
   // group: setup
   const setupResponsive = useCallback((): void => {
-    let set = '';
+    let set = 'xs';
 
     if (window.screen.availWidth >= 320) set = 'xs';
-    else if (window.screen.availWidth >= 640) set = 'sm';
+    if (window.screen.availWidth >= 640) set = 'sm';
     if (window.screen.availWidth >= 768) set = 'md';
     if (window.screen.availWidth >= 1026) set = 'lg';
     if (window.screen.availWidth >= 1280) set = 'xl';
